@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM Playground - JS Lessons 06-09</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 0 16px;
+      background: #fafafa;
+      color: #222;
+    }
+
+    h1 { border-bottom: 2px solid #333; padding-bottom: 8px; }
+
+    .highlight { background: gold; padding: 4px 8px; border-radius: 4px; }
+
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 10px 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    ul { padding-left: 20px; }
+    li { margin: 4px 0; cursor: pointer; }
+
+    button {
+      padding: 8px 14px;
+      margin: 4px 4px 4px 0;
+      border: none;
+      border-radius: 6px;
+      background: #2f6fed;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover { background: #1d5cd8; }
+
+    input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: 4px 0;
+      width: 60%;
+    }
+
+    #my-link { display: inline-block; margin-top: 6px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h1 id="main-title">DOM Playground</h1>
+
+  <p id="message">This paragraph is ready to be changed by JavaScript.</p>
+
+  <div class="card">Card 1 - I am a div with class "card"</div>
+  <div class="card">Card 2 - try selecting all of us</div>
+  <div class="card">Card 3 - querySelectorAll finds us all</div>
+
+  <button id="action-btn">Click me</button>
+
+  <a id="my-link" href="https://example.com">A test link</a>
+
+  <input id="name-input" type="text" placeholder="Type here and watch the console" />
+
+  <h2>Fruit list (event delegation)</h2>
+  <ul id="fruit-list">
+    <li>Mango</li>
+    <li>Banana</li>
+    <li>Orange</li>
+  </ul>
+  <button id="add-fruit-btn">Add fruit</button>
+
+  <h2>Mini to-do</h2>
+  <input id="todo-input" type="text" placeholder="New todo..." />
+  <button id="add-todo-btn">Add todo</button>
+  <ul id="todo-list"></ul>
+
+  <h2>Fetch demo (Lesson: Fetch API)</h2>
+  <button id="load-user-btn">Load a random user</button>
+  <div id="user-result" class="card">Click the button to fetch data...</div>
+
+  <script>
+    // Small helper so the "Add fruit" button works out of the box.
+    // (Lesson 06, Part 13 mentions it. Students replace/extend this.)
+    document.getElementById("add-fruit-btn").addEventListener("click", function () {
+      const ul = document.getElementById("fruit-list");
+      const li = document.createElement("li");
+      li.textContent = "New fruit " + (ul.children.length + 1);
+      ul.appendChild(li);
+    });
+  </script>
+</body>
+</html>
