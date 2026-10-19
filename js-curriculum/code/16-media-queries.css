@@ -1,0 +1,225 @@
+/* ============================================================
+   16-media-queries.css
+   A DESKTOP-FIRST responsive layout, written in three layers:
+
+     LAYER 1  base styles                 -> desktop look
+     LAYER 2  @media (max-width: 900px)   -> tablet look
+     LAYER 3  @media (max-width: 600px)   -> phone look
+
+   "Desktop first" means: write the wide version first, then
+   override pieces as the screen gets NARROWER.
+
+   The HTML never changes. Only these rules change.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   LAYER 1: BASE STYLES (what desktop looks like)
+   ------------------------------------------------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #eef2f7;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+/* Header: logo on the left, nav on the right, all in one row. */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 32px;
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.site-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.site-nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: #ffffff;
+}
+
+/* The page is centred and stops growing at 1100px. */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.hero {
+  margin-bottom: 32px;
+  padding: 48px;
+  border-radius: 16px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.hero p {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 1.125rem;
+}
+
+/* THREE cards side by side on desktop. */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+}
+
+.card h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin: 0;
+  color: #475569;
+}
+
+.site-footer {
+  padding: 24px 32px;
+  color: #64748b;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Demo aid: shows the current window width on screen.
+   This is NOT part of the media-query lesson. */
+.size-badge {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  font: 600 12px/1 monospace;
+  opacity: 0.85;
+}
+
+
+/* ------------------------------------------------------------
+   LAYER 2: TABLET (900px and narrower)
+   ------------------------------------------------------------
+   Read it as: "when the window is AT MOST 900px wide,
+   replace these properties."
+
+   Everything not mentioned here keeps its base value.
+   ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 32px;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  /* 3 columns -> 2 columns */
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   LAYER 3: PHONE (600px and narrower)
+   ------------------------------------------------------------
+   Same idea, one more step down. These rules are written
+   AFTER the 900px block, so they win when both match.
+   ------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+  /* Header: one row -> stacked column */
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .page {
+    padding: 20px 16px;
+  }
+
+  .hero {
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  /* 2 columns -> 1 column */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .site-footer {
+    padding: 20px 16px;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   THE SAME RESULT, MOBILE-FIRST (for comparison)
+   ------------------------------------------------------------
+   Start with ONE column, then add columns as space appears.
+   `min-width` means "from this width upwards".
+
+   .card-grid { grid-template-columns: 1fr; }
+
+   @media (min-width: 600px) {
+     .card-grid { grid-template-columns: repeat(2, 1fr); }
+   }
+
+   @media (min-width: 900px) {
+     .card-grid { grid-template-columns: repeat(3, 1fr); }
+   }
+
+   Pick ONE direction for a project and stay consistent.
+   ------------------------------------------------------------ */

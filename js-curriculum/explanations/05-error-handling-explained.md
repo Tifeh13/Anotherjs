@@ -154,7 +154,7 @@ function registerUser(age) {
 }
 
 try {
-  registerUser(21);     // works
+  registerUser('');     // works
   registerUser("old");  // TypeError
 } catch (error) {
   console.log(error.name + ": " + error.message);

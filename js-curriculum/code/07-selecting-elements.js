@@ -40,7 +40,7 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let title = document.getElementById("main-title");
-//
+
 // console.log(title);
 // console.log(typeof title);          // object - it IS the element
 // console.log(document.getElementById("does-not-exist"));  // null
@@ -67,15 +67,15 @@
 //
 // Returns a NodeList - like an array of elements. Use
 // .length, forEach, or index access [0], [1], ...
-//
-// UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
+// //
+// // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let cards = document.querySelectorAll(".card");
-//
+
 // console.log(cards);            // NodeList(3)
 // console.log(cards.length);     // 3
 // console.log(cards[0]);         // first card
-//
+
 // cards.forEach(function (card, index) {
 //   console.log("Card " + (index + 1) + ": " + card.textContent);
 // });
@@ -87,15 +87,14 @@
 //
 // If nothing matches, you get null. Then trying to use the
 // element CRASHES. Always check before you use!
-//
+
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let ghost = document.querySelector("#i-do-not-exist");
-//
+
 // console.log(ghost);                    // null
-//
-// // This would CRASH:  ghost.textContent = "hello";
-//
+// ghost.textContent = "hello";
+
 // if (ghost !== null) {
 //   ghost.textContent = "hello";
 // } else {
@@ -109,16 +108,16 @@
 //
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
-// // All three of these select the SAME element:
-// let byId    = document.getElementById("main-title");
-// let byQuery = document.querySelector("#main-title");
-//
-// console.log(byId === byQuery);   // true - same element object!
-//
-// // Rule of thumb:
-// // - One known id?            -> getElementById
-// // - Anything else?           -> querySelector
-// // - Many elements at once?   -> querySelectorAll + forEach
+// All three of these select the SAME element:
+let byId    = document.getElementById("main-title");
+let byQuery = document.querySelector("#main-title");
+
+console.log(byId === byQuery);   // true - same element object!
+
+// Rule of thumb:
+// - One known id?            -> getElementById
+// - Anything else?           -> querySelector
+// - Many elements at once?   -> querySelectorAll + forEach
 
 
 // ------------------------------------------------------------
@@ -126,11 +125,10 @@
 // ------------------------------------------------------------
 //
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
-
-// document.querySelectorAll(".card").forEach(function (card) {
+// const cards = document.querySelectorAll(".card");
+// cards.forEach(function (card) {
 //   card.classList.add("highlight");
 // });
-//
 // // Refresh the page (F5) to clear the highlight.
 
 

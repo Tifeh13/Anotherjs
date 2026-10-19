@@ -24,7 +24,7 @@
 
 // let studentName = "Ada";
 // let age = 20;
-//
+
 // console.log(studentName);
 // console.log(age);
 
@@ -43,7 +43,7 @@
 // let score = 10;
 // score = 15;              // allowed - let can change
 // console.log(score);      // 15
-//
+
 // const birthYear = 2006;
 // // birthYear = 2007;      // uncommenting this line CRASHES:
 // // TypeError: Assignment to constant variable.
@@ -60,7 +60,7 @@
 
 // let greeting = "Hello, world!";
 // let city = 'Lagos';
-//
+
 // console.log(greeting);
 // console.log(city);
 // console.log(typeof greeting);   // string
@@ -75,11 +75,15 @@
 // UNCOMMENT BELOW AND RUN IT:
 
 // let wholeNumber = 42;
-// let price = 19.99;
+// let price = 'Hello World!';
 // let negative = -7;
-//
+
 // console.log(wholeNumber, price, negative);
-// console.log(typeof wholeNumber);   // number
+// console.log(typeof negative);   // number
+// console.log(typeof price);
+// console.log(price);
+
+
 
 
 // ------------------------------------------------------------
@@ -88,15 +92,21 @@
 //
 // A boolean is a LIGHT SWITCH: it is either ON (true) or
 // OFF (false). Great for yes/no questions.
-//
+
 // UNCOMMENT BELOW AND RUN IT:
 
 // let isRaining = false;
 // let hasTicket = true;
-//
-// console.log(isRaining);
-// console.log(hasTicket);
+// let Name = 'Ada!';
+// let age = 20;
+
+// // console.log(isRaining, Name, age);
+// // console.log(hasTicket);
 // console.log(typeof hasTicket);   // boolean
+// console.log(typeof Name);
+// console.log(typeof age);
+
+
 
 
 // ------------------------------------------------------------
@@ -108,10 +118,10 @@
 //
 // UNCOMMENT BELOW AND RUN IT:
 
-// let fruits = ["mango", "banana", "orange"];
-//
+// let fruits = ["mango", "banana", "orange", 20, true];
+// //
 // console.log(fruits);         // the whole tray
-// console.log(fruits[0]);      // "mango"  - first slot is 0!
+// console.log(fruits[1]);      // "mango"  - first slot is 0!
 // console.log(fruits[2]);      // "orange" - third slot
 // console.log(fruits.length);  // 3 - how many items
 // console.log(typeof fruits);  // object (arrays are objects)
@@ -126,16 +136,19 @@
 //
 // UNCOMMENT BELOW AND RUN IT:
 
-// let student = {
-//   name: "Ada",
-//   age: 20,
-//   isEnrolled: true
-// };
+let student = {
+  name: "Ada",
+  age: 20,
+  isEnrolled: true
+};
+
 //
 // console.log(student);
-// console.log(student.name);    // "Ada"   - dot notation
-// console.log(student["age"]);  // 20      - bracket notation
+console.log(student.name);    // "Ada"   - dot notation
+console.log(student["age"]);  // 20      - bracket notation
 // console.log(typeof student);  // object
+console.log(student['age']);
+
 
 
 // ------------------------------------------------------------
@@ -164,7 +177,7 @@
 // console.log(5 < 3);        // false
 // console.log(5 === 5);      // true  - strictly equal
 // console.log(5 !== 4);      // true  - not equal
-// console.log(5 === "5");    // false - different TYPES (number vs string)
+// console.log(5 === "5");    
 
 
 // ------------------------------------------------------------

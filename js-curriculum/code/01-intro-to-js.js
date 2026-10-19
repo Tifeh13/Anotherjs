@@ -79,7 +79,7 @@
 
 // let name = "Ada";
 // let Name = "Grace";
-//
+
 // console.log(name);   // Ada
 // console.log(Name);   // Grace - a totally different variable
 

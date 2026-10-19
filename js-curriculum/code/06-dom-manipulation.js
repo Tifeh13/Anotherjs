@@ -49,12 +49,12 @@
 //
 // An id is like a student's admission number: UNIQUE.
 // Fastest way to grab exactly one element.
-//
+
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let heading = document.getElementById("main-title");
-//
-// console.log(heading);            // the <h1> element
+
+// console.log(heading);            
 // console.log(heading.textContent);
 
 
@@ -70,7 +70,7 @@
 // let firstCard = document.querySelector(".card");   // first .card
 // let button = document.querySelector("#action-btn"); // by id
 // let listItem = document.querySelector("ul li");     // first li in a ul
-//
+
 // console.log(firstCard, button, listItem);
 
 
@@ -84,10 +84,10 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let allCards = document.querySelectorAll(".card");
-//
+
 // console.log(allCards);           // NodeList of the 3 cards
 // console.log(allCards.length);    // 3
-//
+
 // allCards.forEach(function (card) {
 //   console.log(card.textContent);
 // });
@@ -104,11 +104,11 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let msg = document.getElementById("message");
-//
+
 // msg.textContent = "Set with textContent - plain and safe.";
-//
+
 // msg.innerHTML = "Set with <strong>innerHTML</strong> - tags work!";
-//
+
 // console.log(msg.innerText);
 // console.log(msg.textContent);
 
@@ -119,15 +119,16 @@
 //
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
-// let link = document.querySelector("#my-link");
-//
-// link.setAttribute("href", "https://developer.mozilla.org");
-// link.setAttribute("target", "_blank");
-// link.textContent = "Go to MDN docs";
-//
-// let title = document.getElementById("main-title");
-// title.style.color = "tomato";
-// title.style.fontSize = "48px";
+let link = document.querySelector("#my-link");
+
+link.setAttribute("href", "https://developer.mozilla.org");
+link.setAttribute("target", "_blank");
+link.textContent = "Go to MDN docs";
+
+let title = document.getElementById("main-title");
+title.style.color = "tomato";
+title.style.fontSize = "48px";
+
 
 
 // ------------------------------------------------------------
@@ -139,13 +140,13 @@
 //
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
-// let title = document.getElementById("main-title");
-//
-// title.classList.add("highlight");
-// title.classList.remove("highlight");
-// title.classList.toggle("highlight");   // on if off, off if on
-//
-// console.log(title.classList.contains("highlight"));
+let title = document.getElementById("main-title");
+
+title.classList.add("highlight");
+title.classList.remove("highlight");
+title.classList.toggle("highlight");   // on if off, off if on
+
+console.log(title.classList.contains("highlight"));
 
 
 // ------------------------------------------------------------
@@ -159,7 +160,7 @@
 // let newPara = document.createElement("p");
 // newPara.textContent = "I was born from JavaScript!";
 // newPara.classList.add("card");
-//
+
 // document.body.appendChild(newPara);   // attach as last child of body
 
 
@@ -183,7 +184,7 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let button = document.getElementById("action-btn");
-//
+
 // button.addEventListener("click", function () {
 //   alert("You clicked me!");
 // });
@@ -199,11 +200,11 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let input = document.getElementById("name-input");
-//
+
 // input.addEventListener("input", function (event) {
 //   console.log("Current value:", event.target.value);
 // });
-//
+
 // document.getElementById("main-title").addEventListener("click", function (e) {
 //   console.log("Click at X:", e.clientX, "Y:", e.clientY);
 // });
@@ -213,23 +214,18 @@
 // PART 13: EVENT DELEGATION (one listener, many children)
 // ------------------------------------------------------------
 //
-// Instead of adding a listener to EVERY child, add ONE to the
-// parent. The click "bubbles up" from the child; we check
-// event.target to see WHO was actually clicked.
-//
-// UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
+// let input = document.getElementById("name-input");
 
-// let list = document.getElementById("fruit-list");
-//
-// list.addEventListener("click", function (event) {
-//   if (event.target.tagName === "LI") {
-//     console.log("You clicked:", event.target.textContent);
-//     event.target.classList.toggle("highlight");
-//   }
+// input.addEventListener("input", function (event) {
+//   console.log("Current value:", event.target.value);
 // });
-//
-// // Bonus: click "Add fruit" - the NEW items also respond,
-// // because the listener lives on the parent, not the items.
+
+// document.getElementById("main-title").addEventListener("click", function (e) {
+//   console.log("Click at X:", e.clientX, "Y:", e.clientY);
+// });
+
+// Bonus: click "Add fruit" - the NEW items also respond,
+// because the listener lives on the parent, not the items.
 
 
 // ------------------------------------------------------------
@@ -240,22 +236,22 @@
 //
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
-// let addBtn = document.getElementById("add-todo-btn");
-// let todoInput = document.getElementById("todo-input");
-// let todoList = document.getElementById("todo-list");
-//
-// addBtn.addEventListener("click", function () {
-//   if (todoInput.value.trim() === "") return;   // ignore empty
-//
-//   let li = document.createElement("li");
-//   li.textContent = todoInput.value;
-//   todoList.appendChild(li);
-//   todoInput.value = "";                        // clear the box
-// });
-//
-// todoList.addEventListener("click", function (event) {
-//   event.target.remove();   // click a todo to delete it
-// });
+let addBtn = document.getElementById("add-todo-btn");
+let todoInput = document.getElementById("todo-input");
+let todoList = document.getElementById("todo-list");
+
+addBtn.addEventListener("click", function () {
+  if (todoInput.value.trim() === "") return;   // ignore empty
+
+  let li = document.createElement("li");
+  li.textContent = todoInput.value;
+  todoList.appendChild(li);
+  todoInput.value = "";                        // clear the box
+});
+
+todoList.addEventListener("click", function (event) {
+  event.target.remove();   // click a todo to delete it
+});
 
 
 // ------------------------------------------------------------

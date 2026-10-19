@@ -27,12 +27,14 @@
 //
 // UNCOMMENT BELOW AND RUN IT:
 
-// let temperature = 35;
-//
+// let temperature = 20;
+// //
 // if (temperature > 30) {
 //   console.log("It is hot today!");
+// } else {
+//   console.log("It is not hot today!");
 // }
-//
+
 // // Nothing prints if the condition is false - the block is skipped.
 
 
@@ -42,8 +44,8 @@
 //
 // UNCOMMENT BELOW AND RUN IT:
 
-// let hasTicket = true;
-//
+// let hasTicket = false;
+
 // if (hasTicket) {
 //   console.log("Enjoy the movie!");
 // } else {
@@ -60,8 +62,8 @@
 //
 // UNCOMMENT BELOW AND RUN IT:
 
-// let score = 72;
-//
+// let score = 39;
+
 // if (score >= 70) {
 //   console.log("Grade: A");
 // } else if (score >= 60) {
@@ -82,8 +84,8 @@
 //
 // UNCOMMENT BELOW AND RUN IT:
 
-// let day = "Saturday";
-//
+// let day = "Monday";
+
 // switch (day) {
 //   case "Saturday":
 //   case "Sunday":
@@ -95,7 +97,7 @@
 //   default:
 //     console.log("Just a normal weekday.");
 // }
-//
+
 // // Try changing day to "Wednesday" and run again.
 
 
@@ -108,7 +110,7 @@
 //
 // UNCOMMENT BELOW AND RUN IT:
 
-// for (let i = 1; i <= 5; i++) {
+// for (let i = 1; i < 5; i++) {
 //   console.log("Push-up number " + i);
 // }
 
@@ -123,7 +125,7 @@
 // UNCOMMENT BELOW AND RUN IT:
 
 // let fruits = ["mango", "banana", "orange"];
-//
+
 // for (let i = 0; i < fruits.length; i++) {
 //   console.log((i + 1) + ". " + fruits[i]);
 // }
@@ -138,13 +140,13 @@
 //
 // UNCOMMENT BELOW AND RUN IT:
 
-// let waterInCup = 3;
-//
+// let waterInCup = 100;
+
 // while (waterInCup > 0) {
 //   console.log("Sip! Remaining: " + waterInCup);
 //   waterInCup = waterInCup - 1;   // if you forget this: INFINITE LOOP!
 // }
-
+// // 
 
 // ------------------------------------------------------------
 // PART 9: BREAK AND CONTINUE (loop remote controls)
@@ -162,7 +164,7 @@
 //   }
 //   console.log("Checking " + i);
 // }
-//
+
 // for (let i = 1; i <= 5; i++) {
 //   if (i === 3) continue;    // skip number 3
 //   console.log("Round " + i);

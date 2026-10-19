@@ -51,9 +51,8 @@
 // } catch (error) {
 //   console.log("Caught an error:", error.message);
 // }
-//
-// console.log("After - the program survived!");
 
+// console.log("After - the program survived!");
 
 // ------------------------------------------------------------
 // PART 4: THE ERROR OBJECT (what is inside the net)
@@ -107,7 +106,7 @@
 //   }
 //   return balance - amount;
 // }
-//
+
 // try {
 //   console.log(withdraw(5000, 2000));   // 3000 - fine
 //   console.log(withdraw(5000, 9000));   // throws!
@@ -131,9 +130,9 @@
 //   }
 //   console.log("Welcome! Account created for age " + age);
 // }
-//
+
 // try {
-//   registerUser(21);     // works
+//   registerUser(12);     // works
 //   registerUser("old");  // TypeError
 // } catch (error) {
 //   console.log(error.name + ": " + error.message);

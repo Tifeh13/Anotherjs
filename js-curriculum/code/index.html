@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOM Playground - JS Lessons 06-09</title>
+  <title>JS Playground - Lessons 06-15</title>
   <style>
     * { box-sizing: border-box; }
 
@@ -18,7 +18,7 @@
 
     h1 { border-bottom: 2px solid #333; padding-bottom: 8px; }
 
-    .highlight { background: gold; padding: 4px 8px; border-radius: 4px; }
+    
 
     .card {
       background: white;
@@ -28,6 +28,8 @@
       margin: 10px 0;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
+
+    .highlight { background: gold; padding: 4px 8px; border-radius: 10px; }
 
     ul { padding-left: 20px; }
     li { margin: 4px 0; cursor: pointer; }
@@ -51,9 +53,37 @@
       margin: 4px 0;
       width: 60%;
     }
+      .dark-mode { background: #1a1a2e; color: #eee; }
 
     #my-link { display: inline-block; margin-top: 6px; }
     .hidden { display: none; }
+
+    /* ==========================================================
+       MOBILE (600px and narrower) - desktop-first media query.
+       The rules above describe the desktop page. These override
+       only what needs to change when the screen gets smaller.
+       ========================================================== */
+    @media (max-width: 600px) {
+      body {
+        margin: 12px auto;
+        padding: 0 12px;
+      }
+
+      h1 { font-size: 1.4rem; }
+
+      .card { padding: 12px; }
+
+      button {
+        width: 100%;
+        margin: 6px 0;
+      }
+
+      input { width: 100%; }
+    }
+
+    #github-result img { border-radius: 50%; display: block; margin-bottom: 8px; }
+    #github-result h3 { margin: 8px 0 4px; }
+    #github-result p { margin: 4px 0; }
   </style>
 </head>
 <body>
@@ -77,6 +107,14 @@
     <li>Banana</li>
     <li>Orange</li>
   </ul>
+
+
+  <ul id="fruit-list-2">
+    <li>Barakat</li>
+    <li>Bolu</li>
+    <li>Gabriel</li>
+  </ul>
+
   <button id="add-fruit-btn">Add fruit</button>
 
   <h2>Mini to-do</h2>
@@ -88,6 +126,15 @@
   <button id="load-user-btn">Load a random user</button>
   <div id="user-result" class="card">Click the button to fetch data...</div>
 
+  <h2>Fetch: posts list (Lesson 14)</h2>
+  <button id="load-posts-btn">Load posts</button>
+  <div id="posts-result" class="card">Click to load five posts...</div>
+
+  <h2>Fetch: GitHub profile finder (Lesson 14)</h2>
+  <input id="github-username" type="text" placeholder="GitHub username, e.g. octocat" />
+  <button id="github-btn">Find profile</button>
+  <div id="github-result" class="card">Type a username and click Find profile.</div>
+
   <script>
     // Small helper so the "Add fruit" button works out of the box.
     // (Lesson 06, Part 13 mentions it. Students replace/extend this.)
@@ -98,5 +145,10 @@
       ul.appendChild(li);
     });
   </script>
+
+
+
 </body>
 </html>
+
+

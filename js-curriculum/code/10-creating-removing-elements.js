@@ -36,12 +36,12 @@
 // PART 2: CREATE AND ATTACH YOUR FIRST ELEMENT
 // ------------------------------------------------------------
 //
-// UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
+// // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let newPara = document.createElement("p");     // 1. create (invisible yet!)
 // newPara.textContent = "I was built by JS!";    // 2. decorate
 // document.body.appendChild(newPara);            // 3. attach - now visible
-//
+
 // // createElement makes the element but it floats in memory,
 // // UNATTACHED, until appendChild snaps it onto the page.
 
@@ -59,7 +59,7 @@
 // card.classList.add("card");
 // card.textContent = "A brand new card";
 // card.style.borderColor = "tomato";
-//
+
 // document.body.appendChild(card);
 
 
@@ -74,9 +74,9 @@
 
 // let fruit = document.createElement("li");
 // fruit.textContent = "Cherry";
-//
+
 // document.getElementById("fruit-list").appendChild(fruit);
-//
+// //
 // // Scroll down to the fruit list - cherry joined at the end.
 
 
@@ -103,17 +103,17 @@
 //
 // appendChild always adds at the END. To cut in line, use
 // insertBefore or prepend.
-//
-// UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
+// //
+// // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let list = document.getElementById("fruit-list");
 // let firstFruit = list.children[0];          // current first item
-//
+
 // let newFirst = document.createElement("li");
 // newFirst.textContent = "Apple (first!)";
-//
+
 // list.insertBefore(newFirst, firstFruit);    // before the old first
-//
+
 // // Or straight to the very top:
 // let topFruit = document.createElement("li");
 // topFruit.textContent = "Avocado (top!)";
@@ -127,7 +127,7 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let firstCard = document.querySelector(".card");
-//
+
 // firstCard.remove();   // modern way - the element removes itself
 //
 // // The classic (older) pattern - still in every codebase:
@@ -145,13 +145,13 @@
 
 // let students = ["Ada", "Chinedu", "Bola", "Ngozi"];
 // let ul = document.createElement("ul");
-//
+
 // students.forEach(function (name) {
 //   let li = document.createElement("li");
 //   li.textContent = name;
 //   ul.appendChild(li);
 // });
-//
+
 // document.body.appendChild(ul);
 //
 // // Change the array, run again - the page follows the data.
@@ -166,7 +166,7 @@
 // let btn = document.createElement("button");
 // btn.textContent = "Clear my new list";
 // document.body.appendChild(btn);
-//
+
 // btn.addEventListener("click", function () {
 //   document.querySelectorAll("ul li").forEach(function (li) {
 //     li.remove();

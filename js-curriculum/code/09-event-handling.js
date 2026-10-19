@@ -39,11 +39,11 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let button = document.getElementById("action-btn");
-//
+
 // button.addEventListener("click", function () {
 //   alert("You clicked the button!");
 // });
-//
+
 // // Click the button on the page. Every click = one alert.
 // // Refresh (F5) to remove the listener.
 
@@ -55,15 +55,15 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let input = document.getElementById("name-input");
-//
+
 // input.addEventListener("input", function () {
 //   console.log("Typed so far:", input.value);
 // });
-//
+
 // input.addEventListener("keydown", function () {
 //   console.log("A key was pressed!");
 // });
-//
+// //
 // // Also try: "mouseover", "mouseout", "dblclick", "submit".
 
 
@@ -78,7 +78,7 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let title = document.getElementById("main-title");
-//
+
 // title.addEventListener("click", function (event) {
 //   console.log("Type of event:  ", event.type);        // "click"
 //   console.log("Element hit:    ", event.target);      // what was clicked
@@ -95,11 +95,11 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let button = document.getElementById("action-btn");
-//
+
 // function shout() {
 //   console.log("BUTTON WAS CLICKED!");
 // }
-//
+
 // button.addEventListener("click", shout);
 //
 // // Later, to stop listening:
@@ -120,11 +120,11 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let list = document.getElementById("fruit-list");
-//
+
 // list.addEventListener("click", function () {
 //   console.log("Parent <ul> heard a click from one of its children");
 // });
-//
+
 // // Now click any fruit - the parent reacts, even though the
 // // listener is on the <ul>, not the <li>.
 
@@ -141,17 +141,17 @@
 //
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
-// let list = document.getElementById("fruit-list");
-//
-// list.addEventListener("click", function (event) {
-//   if (event.target.tagName === "LI") {
-//     console.log("Clicked fruit:", event.target.textContent);
-//     event.target.classList.toggle("highlight");
-//   }
-// });
-//
-// // Click "Add fruit" to create a NEW item, then click it.
-// // It responds instantly - no new listener needed!
+let list = document.getElementById("fruit-list");
+
+list.addEventListener("click", function (event) {
+  if (event.target.tagName === "LI") {
+    console.log("Clicked fruit:", event.target.textContent);
+    event.target.classList.toggle("highlight");
+  }
+});
+
+// Click "Add fruit" to create a NEW item, then click it.
+// It responds instantly - no new listener needed!
 
 
 // ------------------------------------------------------------
@@ -160,25 +160,25 @@
 //
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
-// let addBtn = document.getElementById("add-todo-btn");
-// let todoInput = document.getElementById("todo-input");
-// let todoList = document.getElementById("todo-list");
-//
-// addBtn.addEventListener("click", function () {
-//   if (todoInput.value.trim() === "") return;
-//
-//   let li = document.createElement("li");
-//   li.textContent = todoInput.value;
-//   todoList.appendChild(li);
-//   todoInput.value = "";
-// });
-//
-// todoList.addEventListener("click", function (event) {
-//   if (event.target.tagName === "LI") {
-//     event.target.remove();
-//   }
-// });
-//
+let addBtn = document.getElementById("add-todo-btn");
+let todoInput = document.getElementById("todo-input");
+let todoList = document.getElementById("todo-list");
+
+addBtn.addEventListener("click", function () {
+  if (todoInput.value.trim() === "") return;
+
+  let li = document.createElement("li");
+  li.textContent = todoInput.value;
+  todoList.appendChild(li);
+  todoInput.value = "";
+});
+
+todoList.addEventListener("click", function (event) {
+  if (event.target.tagName === "LI") {
+    event.target.remove();
+  }
+});
+
 // // Add 3 todos, then click each one to delete it.
 
 

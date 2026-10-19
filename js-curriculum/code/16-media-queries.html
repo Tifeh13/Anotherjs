@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Without this line a phone pretends to be ~980px wide and
+       your media queries never fire the way you expect. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>16 - Media Queries (Desktop -> Mobile)</title>
+  <link rel="stylesheet" href="16-media-queries.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">Seun's Portfolio</div>
+    <nav class="site-nav">
+      <a href="#">Home</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1>Desktop first. Then squeeze.</h1>
+      <p>
+        Drag the window narrower and watch the cards go from three,
+        to two, to one. The HTML below never changes - only the CSS
+        decides how it is arranged.
+      </p>
+    </section>
+
+    <section class="card-grid">
+      <article class="card">
+        <h2>Project One</h2>
+        <p>A weather app that calls a real API and shows the forecast.</p>
+      </article>
+      <article class="card">
+        <h2>Project Two</h2>
+        <p>A to-do list that saves tasks in the browser.</p>
+      </article>
+      <article class="card">
+        <h2>Project Three</h2>
+        <p>A portfolio page built from scratch, with no framework.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Resize me &bull; F12 &rarr; Toggle device toolbar &rarr; pick a phone
+  </footer>
+
+  <!-- Demo aid only: prints the current window width. -->
+  <div class="size-badge" id="size-badge">--</div>
+  <script>
+    const badge = document.getElementById("size-badge");
+
+    function showWidth() {
+      badge.textContent = window.innerWidth + "px";
+    }
+
+    showWidth();
+    window.addEventListener("resize", showWidth);
+  </script>
+</body>
+</html>

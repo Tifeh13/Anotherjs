@@ -37,18 +37,18 @@
 
 // let name = "Ada";
 // let age = 20;
-//
+
 // console.log("My name is " + name + " and I am " + age + " years old.");
-//
+
 // // New way: backticks (`) + ${} placeholders
 // console.log(`My name is ${name} and I am ${age} years old.`);
-//
+
 // // The ${} can hold any EXPRESSION:
 // console.log(`Next year I will be ${age + 1}.`);
-//
-// // Backticks also keep LINE BREAKS as you type them:
-// let menu = `1. Rice
-// 2. Beans
+// //
+// // // Backticks also keep LINE BREAKS as you type them:
+// let menu = `
+// 1. Rice 2. Beans
 // 3. Yam`;
 // console.log(menu);
 
@@ -64,21 +64,21 @@
 // UNCOMMENT BELOW AND RUN IT:
 
 // let student = { name: "Chinedu", age: 22, course: "Computer Science" };
-//
-// // Old way:
+// //
+// // // Old way:
 // // let name = student.name;
 // // let age = student.age;
-//
+
 // // ES6 way - the names must MATCH the property names:
 // let { name, age, course } = student;
-//
+
 // console.log(name);     // Chinedu
-// console.log(age);      // 22
-// console.log(course);   // Computer Science
-//
+// // console.log(age);      // 22
+// // console.log(course);   // Computer Science
+
 // // You can rename while unpacking:
 // let { name: fullName } = student;
-// console.log(fullName); // Chinedu
+// console.log(student); // Chinedu
 
 
 // ------------------------------------------------------------
@@ -88,13 +88,13 @@
 // UNCOMMENT BELOW AND RUN IT:
 
 // let colours = ["red", "green", "blue"];
-//
+
 // let [first, second, third] = colours;
-//
+
 // console.log(first);    // red
 // console.log(second);   // green
 // console.log(third);    // blue
-//
+
 // // Skip positions with a hole:
 // let [, , onlyBlue] = colours;
 // console.log(onlyBlue); // blue
@@ -112,7 +112,7 @@
 // function orderDrink(drink = "water", size = "medium") {
 //   console.log(`One ${size} ${drink}, please!`);
 // }
-//
+
 // orderDrink();                       // One medium water, please!
 // orderDrink("zobo");                 // One medium zobo, please!
 // orderDrink("smoothie", "large");    // One large smoothie, please!
@@ -129,13 +129,15 @@
 
 // let fruits = ["mango", "banana"];
 // let moreFruits = ["orange", ...fruits];   // orange, mango, banana
-//
-// console.log(moreFruits);
-//
+
+// // console.log(moreFruits);
+
 // // Copy an array (changes to the copy do NOT affect the original):
 // let copy = [...fruits];
 // copy.push("cherry");
-//
+// copy.pop('')
+// copy.pop('')
+
 // console.log(fruits);   // mango, banana (untouched!)
 // console.log(copy);     // mango, banana, cherry
 //
@@ -144,6 +146,10 @@
 // let english = [4, 5, 6];
 // let allSubjects = [...maths, ...english];
 // console.log(allSubjects);   // 1,2,3,4,5,6
+// allSubjects.pop()
+// console.log(allSubjects);   // 1,2,3,4,5
+// allSubjects.push(7)
+// console.log(allSubjects);   // 1,2,3,4,5,7
 
 
 // ------------------------------------------------------------
@@ -159,16 +165,16 @@
 //   console.log("First:", first);
 //   console.log("The rest:", theRest);
 // }
-//
+
 // countEverything("a", "b", "c", "d");
 // // First: a
 // // The rest: [ 'b', 'c', 'd' ]
-//
+
 // // Superpower: functions that accept ANY number of arguments:
 // function sum(...numbers) {
 //   return numbers.reduce((total, n) => total + n, 0);
 // }
-//
+
 // console.log(sum(1, 2));          // 3
 // console.log(sum(1, 2, 3, 4, 5)); // 15
 
@@ -181,9 +187,10 @@
 
 // // Spread = unpacking a box (sending items OUT)
 // let box = [1, 2, 3];
-// console.log(...box);          // 1 2 3
-//
-// // Rest = packing a box (collecting items IN)
+// let barakat = [4, 5, 6, ...box]
+// console.log(barakat);          // 1 2 3
+// //
+// // // Rest = packing a box (collecting items IN)
 // function pack(...items) {
 //   console.log(items);         // [1, 2, 3]
 // }
@@ -198,13 +205,15 @@
 //
 // UNCOMMENT BELOW AND RUN IT:
 
-// function printProfile({ name, role = "student", scores = [] }) {
-//   let total = scores.reduce((sum, s) => sum + s, 0);
-//   console.log(`${name} (${role}) - total score: ${total}`);
-// }
-//
-// printProfile({ name: "Ada", scores: [70, 80, 90] });
-// printProfile({ name: "Bola" });
+function printProfile({ name, role = "student", scores = [] }) {
+  let total = scores.reduce((sum, s) => sum + s, 0);
+  console.log(`${name} (${role}) - total score: ${total}`);
+}
+
+printProfile({ name: "Ada", scores: [70, 80, 90] });
+printProfile({ name: "Bola" });
+printProfile({ name: "Charlie", role: "instructor", scores: [85, 95] });
+
 //
 // // One parameter, unpacked into named values with defaults.
 

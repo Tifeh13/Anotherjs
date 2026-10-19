@@ -50,7 +50,7 @@ console.log(heading.textContent);  // "DOM Playground"
 ```js
 let firstCard = document.querySelector(".card");      // first .card
 let button    = document.querySelector("#action-btn"); // by id
-let listItem  = document.querySelector("ul li");       // first li in a ul
+let listItem  = document.querySelector("ul li li");       // first li in a ul
 
 console.log(firstCard, button, listItem);
 ```
@@ -264,3 +264,251 @@ Practice tasks — renaming the title, toggling the highlight class from a butto
 4. Events: `addEventListener("click", handler)`; the handler receives the event object (`event.target` is the star).
 5. Delegate: one parent listener serves current **and** future children.
 6. Create → decorate → `appendChild`; remove with `.remove()`.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# EXTRA: The DOM Explained a Different Way (Version 2)
+
+> Same lesson, a new angle. Read this after (or instead of) the version above — whichever one clicks for you.
+
+## The one-sentence idea
+
+Your browser reads your HTML and builds a **live JavaScript copy** of the page. That copy is the **DOM**. Whatever JavaScript does to the DOM, the screen shows **instantly** — no refresh, no reload.
+
+If HTML is a robot's skeleton and CSS is its paint and clothes, then JS is the muscles — and the DOM is the **nervous system**: the wiring that lets JS feel and move every part.
+
+## Step 1: Find the element (you can't change what you can't find)
+
+Three ways to search, three classroom analogies:
+
+| You want | Use | Like a teacher saying |
+|---|---|---|
+| the one element with a unique `id` | `document.getElementById("main-title")` | "Ada, stand up!" (the admission number) |
+| the first match of any CSS selector | `document.querySelector(".card")` | "First person in a red hat, stand up!" |
+| **all** matches | `document.querySelectorAll(".card")` | "Everyone in a red hat, line up!" |
+
+Three habits to build from day one:
+
+1. Selection returns the element itself, so you can chain: `document.getElementById("message").textContent = "Hi!"`. But don't overdo it — saving the element in a variable keeps code readable.
+2. No match → `null`. Using `null` like an element is a crash. An `if (el) { ... }` check costs nothing and saves hours of debugging.
+3. `querySelectorAll` gives a **NodeList**, not an Array. `.length`, `[0]` and `.forEach` work; `.map` and `.filter` do not (convert with `Array.from(list)` if you ever need array powers).
+
+## Step 2: Change what the element says
+
+Three properties, one job each:
+
+- `textContent` — replaces **all** inner content with plain text. Safe with user input.
+- `innerHTML` — replaces the content **and lets the browser parse HTML tags**. Powerful but dangerous: never feed it raw user input, or someone typing `<img src=x onerror=...>` gets code running on your page (an XSS attack).
+- `innerText` — like `textContent`, but it "looks" at the page: text hidden by CSS stays hidden. Slower, occasionally handy.
+
+Memory hook: **Content = textContent · Markup = innerHTML · Visible = innerText.**
+
+## Step 3: Change how it looks
+
+Two routes:
+
+- Direct: `el.style.backgroundColor = "gold"` — every CSS dash becomes the next word's capital: `font-size` → `fontSize`, `border-radius` → `borderRadius`.
+- The **pro route** — define a CSS class once, then flip it from JS:
+
+```js
+title.classList.add("highlight");      // switch on
+title.classList.remove("highlight");   // switch off
+title.classList.toggle("highlight");   // flip: on <-> off
+title.classList.contains("highlight"); // is it on? true / false
+```
+
+Why is `classList` "professional"? Because styling rules stay in CSS where they belong, and JS only makes decisions. Designers edit the CSS; your JS never touches a style value.
+
+## Step 4: Attributes
+
+`el.setAttribute("href", "https://developer.mozilla.org")` sets any attribute; `el.getAttribute("href")` reads it back. Popular attributes also have shortcuts (`el.id`, `el.href`, `el.value`), but `setAttribute` always works.
+
+## Step 5: Build new elements (and tear them down)
+
+A new element is **invisible until attached**. Think of a LEGO brick snapped together in your hand — it only appears once you press it onto the model.
+
+```js
+let li = document.createElement("li");    // 1. CREATE (in memory only!)
+li.textContent = "Cherry";                // 2. DECORATE
+document.getElementById("fruit-list").appendChild(li);  // 3. ATTACH
+```
+
+`el.remove()` deletes it. Older code says `parent.removeChild(el)` — same result, more typing.
+
+## Step 6: Make the page react (events)
+
+`addEventListener` installs a **doorbell**. Installing it changes nothing on screen; the code inside runs **only when someone presses**.
+
+```js
+button.addEventListener("click", function () {
+  alert("Pressed!");
+});
+```
+
+- `"click"` is the event; the function is the **handler** — the page's reaction.
+- The handler runs **later**, only when the event happens. That's why nothing prints the moment you paste this into the console.
+- When the event fires, the browser hands your handler an **event object** — a note the visitor leaves behind: who they were (`event.target`), what they did (`event.type`), where they clicked (`event.clientX` / `event.clientY`). For inputs, `event.target.value` is the live typed text.
+
+## Step 7: Event delegation — one doorbell for the whole building
+
+A click on a child doesn't stop there: it **bubbles up** through its ancestors, like a bubble rising through water. So instead of giving every `<li>` its own doorbell, put **one** on the `<ul>` and check `event.target` to see which item the bubble came from:
+
+```js
+list.addEventListener("click", function (event) {
+  if (event.target.tagName === "LI") {   // tagName is ALWAYS UPPERCASE
+    event.target.classList.toggle("highlight");
+  }
+});
+```
+
+The superpower: items added **later** are covered automatically — the listener lives on the parent, not on the children.
+
+## Step 8: Everything together — the to-do list, line by line
+
+```js
+let addBtn    = document.getElementById("add-todo-btn");  // find
+let todoInput = document.getElementById("todo-input");    //   the
+let todoList  = document.getElementById("todo-list");     //     players
+
+addBtn.addEventListener("click", function () {            // install doorbell
+  if (todoInput.value.trim() === "") return;              // guard: ignore empty
+  let li = document.createElement("li");                  // CREATE
+  li.textContent = todoInput.value;                       // DECORATE
+  todoList.appendChild(li);                               // ATTACH
+  todoInput.value = "";                                   // reset the box
+});
+
+todoList.addEventListener("click", function (event) {     // ONE doorbell for all
+  event.target.remove();                                  // click a todo → gone
+});
+```
+
+**Find → listen → create → attach → reset.** Almost every interactive widget you will ever build is a variation of this loop.
+
+## Common beginner mistakes (learn them now, thank yourself later)
+
+1. **Selecting before the page exists.** Scripts run top-to-bottom; if your `<script>` sits above the HTML it needs, `getElementById` returns `null`. That's why the script lives at the bottom of `<body>` in `index.html`.
+2. **Forgetting the null check** — `Cannot read properties of null` is the most common DOM crash (you met it in Lesson 05!).
+3. **`innerHTML` + user input** — an open door for XSS. Use `textContent` for anything a user typed.
+4. **`tagName` is uppercase** — compare with `"LI"`, never `"li"`.
+5. **CSS dashes in JS styles** — `style.font-size` is a syntax error; it's `style.fontSize`.
+6. **Expecting a NodeList to be an Array** — `forEach` yes, `map` no.
+
+## 60-second cheat sheet
+
+| Task | Code |
+|---|---|
+| find one by id | `document.getElementById("main-title")` |
+| find first CSS match | `document.querySelector(".card")` |
+| find all matches | `document.querySelectorAll(".card")` |
+| read / change text | `el.textContent` |
+| change HTML inside | `el.innerHTML` *(trusted input only)* |
+| set an attribute | `el.setAttribute("href", url)` |
+| change look | `el.style.color = "red"` or `el.classList.toggle("x")` |
+| create + attach | `document.createElement("li")` → decorate → `parent.appendChild(li)` |
+| delete | `el.remove()` |
+| react to clicks | `el.addEventListener("click", handler)` |
+| who was clicked? | `event.target` |
+| one listener, many children | delegation on the parent + `event.target` |
+
+## Test yourself (answers below — no peeking)
+
+1. What does `querySelector` return when nothing matches?
+2. Which property would you use to display text a user typed — and why not the other one?
+3. Why does a listener on the `<ul>` also catch clicks on `<li>`s added next week?
+4. `title.style.font-size = "48px";` — what's wrong?
+
+**Answers:** 1. `null`. 2. `textContent` — `innerHTML` would run any HTML the user typed (XSS risk). 3. Clicks bubble up to the parent, and the handler inspects `event.target` at click time, so future items are covered automatically. 4. CSS dashes become camelCase in JS: `style.fontSize`.

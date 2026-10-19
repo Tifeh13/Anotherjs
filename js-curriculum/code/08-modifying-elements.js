@@ -33,12 +33,12 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let msg = document.getElementById("message");
-//
+
 // msg.textContent = "Written by JavaScript!";
-//
+
 // // Reading works too:
 // console.log(msg.textContent);
-//
+
 // // textContent treats everything as PLAIN text.
 // // Watch what happens with tags:
 // msg.textContent = "I am <b>not</b> bold";   // tags shown literally!
@@ -51,12 +51,12 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let msg = document.getElementById("message");
-//
+
 // msg.innerHTML = "I am <strong>actually bold</strong> now";
-//
-// // innerHTML PARSES tags. Powerful - but dangerous with user
-// // input: a user could inject <script> or <img onerror=...>.
-// // Rule: user text -> textContent. Trusted HTML -> innerHTML.
+
+// innerHTML PARSES tags. Powerful - but dangerous with user
+// input: a user could inject <script> or <img onerror=...>.
+// Rule: user text -> textContent. Trusted HTML -> innerHTML.
 
 
 // ------------------------------------------------------------
@@ -66,14 +66,14 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let title = document.getElementById("main-title");
-//
+
 // title.style.display = "none";        // hide it with CSS
-//
+
 // console.log("innerText:    ", title.innerText);     // "" - respects hiding
 // console.log("textContent:  ", title.textContent);   // full text anyway
-//
+
 // title.style.display = "";            // show it again
-//
+
 // // innerText = what a HUMAN sees. textContent = raw text.
 
 
@@ -87,11 +87,11 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let link = document.getElementById("my-link");
-//
+
 // link.setAttribute("href", "https://developer.mozilla.org");
 // link.setAttribute("target", "_blank");       // open in new tab
 // link.textContent = "MDN Web Docs";
-//
+
 // console.log(link.getAttribute("href"));      // read it back
 //
 // // For the common ones there are shortcuts:
@@ -106,11 +106,11 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let title = document.getElementById("main-title");
-//
+
 // title.style.color = "tomato";
 // title.style.backgroundColor = "lightyellow";  // note: camelCase!
 // title.style.fontSize = "44px";
-//
+
 // // CSS "background-color" becomes JS "backgroundColor".
 
 
@@ -124,12 +124,12 @@
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
 // let title = document.getElementById("main-title");
-//
+
 // title.classList.add("highlight");        // turn style ON
 // title.classList.remove("highlight");     // turn style OFF
 // title.classList.toggle("highlight");     // flip: on<->off
 // title.classList.toggle("highlight");
-//
+
 // console.log(title.classList.contains("highlight"));  // true/false
 
 
@@ -139,18 +139,18 @@
 //
 // UNCOMMENT BELOW, PASTE IN CONSOLE AND RUN IT:
 
-// let body = document.body;
+let body = document.body;
+
+function toggleDarkMode() {
+  body.classList.toggle("dark-mode");
+}
 //
-// function toggleDarkMode() {
-//   body.classList.toggle("dark-mode");
-// }
+// The .dark-mode class does not exist in index.html yet.
+// Add this CSS, then run toggleDarkMode() a few times:
 //
-// // The .dark-mode class does not exist in index.html yet.
-// // Add this CSS, then run toggleDarkMode() a few times:
-// //
-// //   .dark-mode { background: #1a1a2e; color: #eee; }
+
 //
-// toggleDarkMode();
+toggleDarkMode();
 
 
 // ------------------------------------------------------------
